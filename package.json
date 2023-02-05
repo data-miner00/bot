@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mineflayer": "^4.8.0"
+    "mineflayer": "^4.8.0",
+    "prismarine-viewer": "^1.23.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
