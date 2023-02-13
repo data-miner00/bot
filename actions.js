@@ -92,4 +92,15 @@ module.exports = {
       }
     }
   },
+  async expunge() {
+    var inventoryItemCount = bot.inventory.items().length;
+    if (inventoryItemCount === 0) return;
+
+    while (inventoryItemCount > 0) {
+      const item = bot.inventory.items()[0];
+      bot.chat(`Throwed ${item.name}`);
+      await bot.tossStack(item);
+      inventoryItemCount--;
+    }
+  },
 };

@@ -6,6 +6,7 @@ const {
   goToPlayer,
   equipPickaxe,
   mine,
+  expunge,
 } = require("./actions");
 
 const queue = [];
@@ -39,6 +40,9 @@ bot.once("spawn", () => {
         goToPlayer(username);
         break;
       case "stop":
+        break;
+      case "throw":
+        expunge();
         break;
       default:
         const a = 1;
