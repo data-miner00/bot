@@ -34,11 +34,12 @@ module.exports = {
     const position = playerEntity.position.offset(0, playerEntity.height, 0);
     bot.lookAt(position);
   },
-  sayItems(items = bot.inventory.items()) {
+  sayItems() {
+    const items = bot.inventory.items();
     const output = items.map((i) =>
       i ? `${i.name}x${i.count}` : "nothing in inventory"
     );
-    bot.chat(output || "nothing in inventory");
+    bot.chat(output.join(", ") || "nothing in inventory");
   },
   goToPlayer(username) {
     const defaultMove = new Movements(bot);
@@ -98,7 +99,7 @@ module.exports = {
 
     while (inventoryItemCount > 0) {
       const item = bot.inventory.items()[0];
-      bot.chat(`Throwed ${item.name}`);
+      // bot.chat(`Throwed ${item.name}`);
       await bot.tossStack(item);
       inventoryItemCount--;
     }
