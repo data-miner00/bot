@@ -104,4 +104,15 @@ module.exports = {
       inventoryItemCount--;
     }
   },
+  attack() {
+    var entity = bot.nearestEntity(
+      (entity) => entity.type === "mob" && entity.name === "creeper"
+    );
+
+    if (entity) {
+      bot.attack(entity);
+    } else {
+      bot.swingArm("right", true);
+    }
+  },
 };
