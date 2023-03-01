@@ -50,5 +50,9 @@ bot.once("spawn", () => {
   });
 });
 
+bot.on("death", () => {
+  console.log("Died and respawn at" + bot.entity.position);
+});
+
 bot.on("kicked", console.log);
 bot.on("error", console.log);
