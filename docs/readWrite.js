@@ -67,3 +67,9 @@ function readStream() {
     console.log("sum", sum);
   });
 }
+
+function readWriteSteamUsingPipe() {
+  var file = fs.createReadStream("infile.csv");
+  var outFile = fs.createReadStream("infile.csv.bak");
+  file.pipe(outFile);
+}
