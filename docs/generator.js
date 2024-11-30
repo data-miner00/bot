@@ -35,3 +35,21 @@ var fibonacci = fibonacciGenerator();
 for (var i = 0; i < 10; i++) {
   console.log(fibonacci.next());
 }
+
+// Nested generators
+function* nestedGenerator() {
+    yield "I am nested";
+}
+
+function* outerGenerator() {
+    yield "Before nested";
+    yield* nestedGenerator();
+    yield "After nested";
+}
+
+var outer = outerGenerator();
+
+for (var i = 0; i < 4; i++) {
+    console.log(outer.next());
+}
+
